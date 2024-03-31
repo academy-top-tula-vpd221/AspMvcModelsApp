@@ -1,0 +1,31 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form>
+    <label>Company:</label>
+    <select name="companyId">
+        @foreach(CompanyNameModel c in Model.CompanyNames)
+        {
+            <option value="@c.Id">@c.CompanyTitle</option>
+        }
+    </select>
+    <input type="submit" value="Select" />
+</form>
+<br />
+<table>
+    <thead>
+        <td>Company</td>
+        <td>Name</td>
+        <td>Age</td>
+    </thead>
+    @foreach(Employee e in Model.Employees)
+    {
+        <tr>
+            <td>@e.Company.Title</td>
+            <td>@e.Name</td>
+            <td>@e.Age</td>
+        </tr>
+    }
+</table>
